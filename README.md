@@ -1,5 +1,5 @@
 ## React webpack starter kit
-Kit that provides ready-to-go webpack support for react.
+Starter kit to provide ready-to-go webpack support for react.
 
 ## Goals
 - babel + es6 support
@@ -11,5 +11,5 @@ Kit that provides ready-to-go webpack support for react.
 	- path where to dump build
 	- bundle name
 	- proxy requests
-- eslint
+- DONE eslint
 - add lodash
