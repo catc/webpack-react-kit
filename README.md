@@ -6,6 +6,7 @@ Starter kit to provide ready-to-go webpack support for react.
 - sass support
 - hot reloading
 - easy build command
+	- https://webpack.js.org/guides/production-build/
 - easily customisable
 	- dev server port
 	- path where to dump build
