@@ -2,21 +2,25 @@
 Starter kit to provide ready-to-go webpack support for react. Useful for poc or simple projects.
 
 ## Goals
-- babel + es6 support
 - sass support
+	- create dir
+	- update instructions + any bypass
 	- https://webpack.js.org/guides/migrating/#dedupeplugin-has-been-removed
-- hot reloading
 - easily customisable
 	- DONE dev server port
 	- path where to dump build
 	- bundle name
 	- DONE proxy requests
 	- DONE source map
-- DONE eslint
 - add lodash
 - instructions
 
-
+## Installation and usage
+1. Clone the repo
+2. Using a node version of `7.6.0+`, run `npm install`
+3. Customize environment in `custom-config.js` if necessary
+4. Run `npm run dev` and navigate to `localhost:4800` (or whatever custom port you set)
+5. Add your react components + scss inside `src/`
 
 
 ## `custom-config.js`

@@ -42,7 +42,8 @@ const config = {
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
-			src: resolve(ROOT, 'src')
+			src: resolve(ROOT, 'src'),
+			components: 'src/components'
 		}
 	}
 }
