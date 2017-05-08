@@ -10,7 +10,6 @@ const PORT = custom.port || 4800;
 
 /*
 	TODO
-	- add support for proxy requests
 	- add support for proxy updating
 		- ie: make sure HMR updates component on other urls?
 			- doing <script src="http://localhost:8080/bundle.js"> still subscribes to updates
@@ -29,19 +28,41 @@ config.plugins.push(
 	new webpack.NamedModulesPlugin()
 );
 
-// add loader
+// add loaders
 config.module.rules[0].use.unshift('react-hot-loader/webpack');
 
-
-// start server
-new devServer(webpack(config), {
+// setup deb server config
+const devServerConfig = {
 	hot: true,
 	publicPath: '/',
 	contentBase: ROOT,
 
+	// logging
 	stats: 'errors-only',
 	clientLogLevel: 'none',
-}).listen(PORT, '0.0.0.0', err => {
+	
+}
+if (custom.proxyPort){
+	// add proxy for api requests
+	devServerConfig.proxy = {
+		'/': {
+			target: `http://localhost:${custom.proxyPort}`,
+			bypass: function(req){
+				// proxy any api calls to external
+				switch (req.path){
+					case '/':
+						return '/index.html';
+					case '/bundle.js':
+						return '/bundle.js'
+					// TODO - add one for css
+				}
+			}
+		}
+	};
+}
+
+// start server
+new devServer(webpack(config), devServerConfig).listen(PORT, '0.0.0.0', err => {
 	if (err){
 		throw new Error('webpack dev server error', err);
 	}
