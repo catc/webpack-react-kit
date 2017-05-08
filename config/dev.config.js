@@ -49,13 +49,12 @@ if (custom.proxyPort){
 		'/': {
 			target: `http://localhost:${custom.proxyPort}`,
 			bypass: function(req){
-				// proxy any api calls to external
+				// proxy any api calls to external server
 				switch (req.path){
 					case '/':
 						return '/index.html';
 					case '/bundle.js':
 						return '/bundle.js'
-					// TODO - need one for css?
 				}
 			}
 		}

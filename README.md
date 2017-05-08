@@ -5,7 +5,9 @@ Starter kit to provide ready-to-go webpack support for react. Useful for poc or 
 - sass support
 	- create dir
 	- update instructions + any bypass
-	- https://webpack.js.org/guides/migrating/#dedupeplugin-has-been-removed
+	- see scss nesting rules work
+	- ensure build + dev works
+		- proper minification on build
 - easily customisable
 	- DONE dev server port
 	- path where to dump build
@@ -39,3 +41,10 @@ Allows you to proxy api requests to different host.
 
 Eg: setting the `proxyPort: 1234` will result in all requests to `localhost:4800/some_endpoint` will be proxied to `localhost:1234/some_endpoint`.
 
+
+
+#### Other
+Babel plugins that may be useful
+- `babel-plugin-transform-object-rest-spread`
+- `babel-preset-stage-0`
+- `babel-preset-stage-1`

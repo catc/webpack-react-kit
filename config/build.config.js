@@ -1,8 +1,5 @@
-const { resolve } = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const ROOT = resolve(__dirname, '../');
 
 const config = require('./config');
 const custom = require('../custom-config');
@@ -18,11 +15,24 @@ config.module.rules[1].use = ExtractTextPlugin.extract({
 	use: [
 		{
 			loader: 'css-loader',
-			options: {sourceMap: false}
+		},
+		{
+			loader: 'postcss-loader',
+			options: {
+				plugins: [
+					require('autoprefixer')({
+						browsers: [
+							'> 1%',
+							'Safari 8',
+							'Last 2 versions'
+						]
+					}),
+					require('cssnano')(),
+				]
+			}
 		},
 		{
 			loader: 'sass-loader',
-			options: {sourceMap: false}
 		}
 	]
 });
