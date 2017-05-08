@@ -17,7 +17,7 @@ Webpack starter kit to provide ready-to-go webpack support for react. Useful for
 
 ## Developing on own server
 You can develop and serve the bundle from your own server but still support hot module reloading.
-1. In your html file, including the bundle via: `<script type="text/javascript" src="http://localhost:4800/bundle.js"></script>
+1. In your html file, including the bundle via: `<script type="text/javascript" src="http://localhost:4800/bundle.js"></script>`
 2. Add `<div id="root"></div>` to your html
 
 Any changes should be reflected accordingly.
