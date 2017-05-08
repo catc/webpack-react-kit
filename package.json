@@ -1,5 +1,13 @@
 {
-  "name": "react-starter-pack",
+  "name": "react-webpack-starter-pack",
+  "description": "webpack + react starter kit with hmr, sass and other goodies",
+  "version": "1.0.0",
+  "author": "Catalin Covic <catalin.covic@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catc/webpack-react-kit.git"
+  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
@@ -21,8 +29,7 @@
   },
   "scripts": {
     "dev": "node ./config/dev.config.js",
-    "build": "node ./config/build.config.js",
-    "server": "http-server ./build -p 8090"
+    "build": "node ./config/build.config.js"
   },
   "dependencies": {
     "react": "^15.5.4",
