@@ -4,6 +4,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('./config');
 const custom = require('../custom-config');
 
+const CSS_FILENAME = `${custom.filenameCSS || 'styles'}.css`;
+const SOURCE_MAP = custom.buildSourceMap ? custom.buildSourceMap : false
+
 // source map
 config.output.sourceMapFilename = '[name].map';
 
@@ -39,14 +42,14 @@ config.module.rules[1].use = ExtractTextPlugin.extract({
 
 // add plugins
 config.plugins = [
-	new ExtractTextPlugin('styles.css'),
+	new ExtractTextPlugin(CSS_FILENAME),
 	new webpack.DefinePlugin({
 		'process.env': {
 			NODE_ENV: JSON.stringify('production'),
 		},
 	}),
 	new webpack.optimize.UglifyJsPlugin({
-		sourceMap: custom.buildSourceMap ? custom.buildSourceMap : false,
+		sourceMap: SOURCE_MAP,
 		beautify: false,
 		mangle: {
 			screw_ie8: true,

@@ -7,6 +7,7 @@ const config = require('./config');
 
 const ROOT = resolve(__dirname, '../');
 const PORT = custom.port || 4800;
+const FILE_NAME = `${custom.filename || 'bundle'}.js`;
 
 // add hmr entries
 config.entry.unshift('webpack/hot/only-dev-server');
@@ -53,8 +54,8 @@ if (custom.proxyPort){
 				switch (req.path){
 					case '/':
 						return '/index.html';
-					case '/bundle.js':
-						return '/bundle.js'
+					case `/${FILE_NAME}`:
+						return `/${FILE_NAME}`
 				}
 			}
 		}

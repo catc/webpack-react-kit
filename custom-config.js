@@ -15,4 +15,20 @@ module.exports = {
 		port to proxy api requests to
 	*/
 	// proxyPort: 1234
+
+	/*
+		file name of javascript bundle (default: bundle)
+		NOTE: will need to update the `index.html` path
+	*/
+	// filename: 'bundle',
+
+	/*
+		filepath of directory to place build (default: build)
+	*/
+	// filepath: 'some/custom/folder',
+
+	/*
+		file name of css bundle (default: styles)
+	*/
+	// filenameCSS: 'style'
 };

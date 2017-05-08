@@ -1,23 +1,6 @@
 ## React webpack starter kit
 Starter kit to provide ready-to-go webpack support for react. Useful for poc or simple projects.
 
-## Goals
-- sass support
-	- create dir
-	- update instructions + any bypass
-	- see scss nesting rules work
-	- ensure build + dev works
-		- proper minification on build
-- easily customisable
-	- DONE dev server port
-	- path where to dump build
-	- bundle name
-	- DONE proxy requests
-	- DONE source map
-- add lodash
-- instructions
-- update package.json
-
 ## Installation and usage
 1. Clone the repo
 2. Using a node version of `7.6.0+`, run `npm install`
@@ -34,7 +17,7 @@ Any changes should be reflected accordingly.
 
 
 ## `custom-config.js`
-Override webpack defaults to your own development environment.
+Override webpack defaults to your own development environment. See the `custom-config.js` file for list of customizable options.
 
 #### `proxyPort`
 Allows you to proxy api requests to different host.

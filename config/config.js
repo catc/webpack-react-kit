@@ -1,16 +1,15 @@
 const { resolve } = require('path');
+const custom = require('../custom-config');
 
 const ROOT = resolve(__dirname, '../');
+const FILE_NAME = `${custom.filename || 'bundle'}.js`;
+const FILE_PATH = custom.filepath || 'build'
 
-/*
-	TODO
-	- make customizable with config file
-*/
 const config = {
 	entry: ['./src/index.js'],
 	output: {
-		filename: 'bundle.js',
-		path: resolve(ROOT, 'build'),
+		filename: FILE_NAME,
+		path: resolve(ROOT, FILE_PATH),
 		publicPath: '/',
 	},
 
@@ -30,9 +29,7 @@ const config = {
 					{
 						loader: 'babel-loader',
 						// options specified in `.babelrc`
-						options: {
-							// plugins: [require('babel-plugin-transform-object-rest-spread')]
-						}
+						options: {}
 					}
 				]
 			},
