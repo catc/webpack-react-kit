@@ -10,7 +10,6 @@ const PORT = custom.port || 4800;
 
 // add hmr entries
 config.entry.unshift('webpack/hot/only-dev-server');
-// config.entry.unshift(`webpack-dev-server/client?http://localhost:${PORT}`);
 config.entry.unshift(`webpack-dev-server/client?http://localhost:${PORT}`);
 config.entry.unshift('react-hot-loader/patch');
 
@@ -25,7 +24,11 @@ config.plugins.push(
 // add loaders
 config.module.rules[0].use.unshift('react-hot-loader/webpack');
 
-// setup deb server config
+// css
+config.module.rules[1].use.unshift('style-loader');
+config.module.rules[1].use.unshift('react-hot-loader/webpack');
+
+// setup dev server config
 const devServerConfig = {
 	hot: true,
 	publicPath: '/',

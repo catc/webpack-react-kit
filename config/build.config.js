@@ -1,35 +1,35 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const ROOT = resolve(__dirname, '../');
 
 const config = require('./config');
 const custom = require('../custom-config');
 
+// source map
 config.output.sourceMapFilename = '[name].map';
-/*const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-build.module.loaders.pop()
-build.module.loaders.push({
-	test: /\.(s?)css$/,
-	loaders: [ExtractTextPlugin.extract('style-loader'), 'css-loader', 'postcss-loader', 'sass-loader']
-})
+// required to omit css source maps (currently a bug with css-loader?)
+config.devtool = false;
 
-build.postcss = () => {
-	return [
-		require('autoprefixer')({
-			browsers: [
-				'> 1%',
-				'Safari 8',
-				'Last 2 versions'
-			]
-		})
-	];
-}
-*/
+// css text extract
+config.module.rules[1].use = ExtractTextPlugin.extract({
+	use: [
+		{
+			loader: 'css-loader',
+			options: {sourceMap: false}
+		},
+		{
+			loader: 'sass-loader',
+			options: {sourceMap: false}
+		}
+	]
+});
 
 // add plugins
 config.plugins = [
+	new ExtractTextPlugin('styles.css'),
 	new webpack.DefinePlugin({
 		'process.env': {
 			NODE_ENV: JSON.stringify('production'),
