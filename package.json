@@ -14,10 +14,8 @@
     "webpack-dev-server": "^2.4.5"
   },
   "scripts": {
-    "dev": "webpack --config dev.config.js --progress",
-    "build": "node build.config.js",
-    "t1": "webpack --config config/config.js",
-    "t2": "node ./config/config.js",
+    "dev": "node ./config/dev.config.js",
+    "build": "node ./config/build.config.js",
     "server": "http-server ./build -p 8090"
   },
   "dependencies": {
